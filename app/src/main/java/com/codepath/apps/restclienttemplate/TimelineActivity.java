@@ -1,6 +1,5 @@
 package com.codepath.apps.restclienttemplate;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,14 +14,13 @@ import cz.msebera.android.httpclient.Header;
 public class TimelineActivity extends AppCompatActivity {
 
     private TwitterClient client;
-    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
-        client = TwitterApp.getRestClient(context);
+        client = TwitterApp.getRestClient(this);
         populateTimeline();
     }
 
