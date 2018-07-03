@@ -7,7 +7,7 @@
     tools:context=".ComposeActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/tweet_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -15,16 +15,16 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text="What's happening?"
+        android:hint="What's happening?"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="42dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/tweet_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/tweet_message"
         android:text="Tweet"
         tools:layout_editor_absoluteX="296dp"
         tools:layout_editor_absoluteY="88dp" />
