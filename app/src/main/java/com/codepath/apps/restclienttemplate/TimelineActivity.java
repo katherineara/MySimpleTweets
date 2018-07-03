@@ -48,8 +48,18 @@ public class TimelineActivity extends AppCompatActivity {
         // set the adapter
         rvTweets.setAdapter(tweetAdapter);
         populateTimeline();
+    }
 
-        tweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
+    // ActivityOne.java, time to handle the result of the sub-activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+            tweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra(Tweet.class.getSimpleName()));
+            tweets.add(0, tweet);
+            tweetAdapter.notifyItemInserted(0);
+            rvTweets.scrollToPosition(0);
+        }
     }
 
     public void onComposeAction(MenuItem mi) {
@@ -57,6 +67,7 @@ public class TimelineActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ComposeActivity.class);
         startActivityForResult(intent, REQUEST_CODE);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
