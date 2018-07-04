@@ -49,7 +49,6 @@ public class ComposeActivity extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Toast.makeText(ComposeActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 client.sendTweet(message.getText().toString(), handler);
             }
         });
