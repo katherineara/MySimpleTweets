@@ -32,12 +32,11 @@ public class ComposeActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.tweet_button);
         message = (EditText) findViewById(R.id.tweet_message);
         handler = new JsonHttpResponseHandler() {
-
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                try {
-                    tweet = new Tweet();
-                    tweet = tweet.fromJSON(response);
+            Tweet tweet = null;
+            try {
+                    tweet = Tweet.fromJSON(response);
                     Intent intent = new Intent(ComposeActivity.this, TimelineActivity.class);
                     intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
                     startActivity(intent);
