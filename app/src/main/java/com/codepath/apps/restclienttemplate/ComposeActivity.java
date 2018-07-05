@@ -61,7 +61,7 @@ public class ComposeActivity extends AppCompatActivity {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                counter.setText(String.valueOf(140 - s.length()));
+                counter.setText(String.valueOf(140 - s.length()) + " characters left");
             }
 
             public void afterTextChanged(Editable s) {
