@@ -26,6 +26,7 @@ public class ComposeActivity extends AppCompatActivity {
     JsonHttpResponseHandler handler;
     TextView counter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
