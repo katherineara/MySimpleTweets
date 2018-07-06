@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.codepath.apps.restclienttemplate.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
@@ -25,6 +26,9 @@ public class ComposeActivity extends AppCompatActivity {
     EditText message;
     JsonHttpResponseHandler handler;
     TextView counter;
+    Integer type;
+    User user;
+    Tweet tweet;
 
 
     @Override
@@ -32,14 +36,17 @@ public class ComposeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
         client = new TwitterClient(this);
+        user = new User();
 
         Button button = (Button) findViewById(R.id.tweet_button);
         message = (EditText) findViewById(R.id.tweet_message);
         counter = (TextView) findViewById(R.id.counter);
+
+        type = getIntent().getIntExtra("type", 0);
         handler = new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-            Tweet tweet = null;
+            tweet = null;
                 try {
                     tweet = Tweet.fromJSON(response);
                     Intent intent = new Intent(ComposeActivity.this, TimelineActivity.class);
@@ -51,9 +58,15 @@ public class ComposeActivity extends AppCompatActivity {
             }
         };
 
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                client.sendTweet(message.getText().toString(), handler);
+                if (type == 2) {
+                    client.sendTweet("@"  + " " +
+                            message.getText().toString(), handler);
+                } else {
+                    client.sendTweet(message.getText().toString(), handler);
+                }
             }
         });
 

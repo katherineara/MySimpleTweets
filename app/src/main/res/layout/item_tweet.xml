@@ -37,4 +37,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/reply"
+        android:layout_width="22dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/ivProfileImage"
+        android:layout_alignParentEnd="true"
+        android:onClick="replyTweet"
+        app:srcCompat="@drawable/reply" />
 </RelativeLayout>
