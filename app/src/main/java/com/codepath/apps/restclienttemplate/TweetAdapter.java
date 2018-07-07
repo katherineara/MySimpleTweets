@@ -81,7 +81,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     // create ViewHolder class
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView ivProfileImage;
         public TextView tvUsername;
         public TextView tvBody;
@@ -97,6 +97,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
             replyButton = (ImageButton) itemView.findViewById(R.id.reply);
+            itemView.setOnClickListener(this);
+
         }
 
         public void onClick(View v) {
