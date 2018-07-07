@@ -39,7 +39,7 @@ The following **bonus** features are implemented:
 * [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 * [ ] User can view following / followers list through any profile they view.
 * [ ] User can see embedded image media within the tweet detail view
-* [ ] Use the popular ButterKnife annotation library to reduce view boilerplate.
+* [x] Use the popular ButterKnife annotation library to reduce view boilerplate.
 * [ ] On the Twitter timeline, leverage the [CoordinatorLayout](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events) to apply scrolling behavior that [hides / shows the toolbar](http://guides.codepath.com/android/Using-the-App-ToolBar#reacting-to-scroll).
 * [ ] User can **open the twitter app offline and see last loaded tweets**. Persisted in SQLite tweets are refreshed on every application launch. While "live data" is displayed when app can get it from Twitter API, it is also saved for use in offline mode.
 
@@ -47,7 +47,7 @@ The following **bonus** features are implemented:
 The following **additional** features are implemented:
 
 * [x] List anything else that you can get done to improve the app functionality!
-I have changed the toolbar color!
+I improved the UI of the app and changed aspects like the compose icon and the toolbar.
 
 ## Video Walkthrough
 
@@ -60,7 +60,7 @@ GIF created with [LiceCap](http://www.recordit.co).
 ## Notes
 
 Describe any challenges encountered while building the app.
-It was difficult to udnerstand how the API calls worked and then navigate through the hierarchy of the Android Studio project on my own. 
+It was difficult to udnerstand how the API calls worked and then navigate through the different Android Studio files. It required a more in depth understanding of how the layouts and Java classes related to each other for me to figure out where to code.
 
 ## Open-source libraries used
 
