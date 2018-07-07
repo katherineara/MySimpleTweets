@@ -19,32 +19,38 @@ import org.parceler.Parcels;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ComposeActivity extends AppCompatActivity {
+public class ReplyActivity extends AppCompatActivity {
 
     TwitterClient client;
     EditText message;
     JsonHttpResponseHandler handler;
     TextView counter;
+    Integer type;
     Tweet tweet;
+    String username;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compose);
+        setContentView(R.layout.activity_reply);
         client = new TwitterClient(this);
 
         Button button = (Button) findViewById(R.id.tweet_button);
         message = (EditText) findViewById(R.id.tweet_message);
         counter = (TextView) findViewById(R.id.counter);
 
+        username = "@" + Parcels.unwrap(getIntent().getParcelableExtra("username"));
+        message.setText(username);
+        message.setSelection(username.length());
+
         handler = new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-            tweet = null;
+                tweet = null;
                 try {
                     tweet = Tweet.fromJSON(response);
-                    Intent intent = new Intent(ComposeActivity.this, TimelineActivity.class);
+                    Intent intent = new Intent(ReplyActivity.this, TimelineActivity.class);
                     intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
                     startActivity(intent);
                 } catch (JSONException e) {
@@ -53,10 +59,9 @@ public class ComposeActivity extends AppCompatActivity {
             }
         };
 
-
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                client.sendTweet(message.getText().toString(), handler);
+                client.replyTweet(" " + message.getText().toString(), handler);
             }
         });
 

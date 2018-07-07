@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:text="TextView" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/reply"
         android:layout_width="22dp"
         android:layout_height="25dp"
