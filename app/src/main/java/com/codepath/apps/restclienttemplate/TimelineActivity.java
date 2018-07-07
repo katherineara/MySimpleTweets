@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -128,12 +127,6 @@ public class TimelineActivity extends AppCompatActivity {
         // handle click here
         Intent intent = new Intent(this, ComposeActivity.class);
         intent.putExtra("type", 1);
-        startActivityForResult(intent, REQUEST_CODE);
-    }
-
-    public void replyTweet(View view) {
-        Intent intent = new Intent(this, ComposeActivity.class);
-        intent.putExtra("type", 2);
         startActivityForResult(intent, REQUEST_CODE);
     }
 

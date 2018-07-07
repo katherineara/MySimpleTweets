@@ -8,7 +8,6 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,7 +56,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvTime.setText(time);
         final String username = tweet.user.screenName;
 
-        ImageButton replyButton = holder.replyButton;
+        ImageView replyButton = holder.replyButton;
         replyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +85,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvUsername;
         public TextView tvBody;
         public TextView tvTime;
-        public ImageButton replyButton;
+        public ImageView replyButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -96,7 +95,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
-            replyButton = (ImageButton) itemView.findViewById(R.id.reply);
+            replyButton = (ImageView) itemView.findViewById(R.id.reply);
             itemView.setOnClickListener(this);
 
         }
