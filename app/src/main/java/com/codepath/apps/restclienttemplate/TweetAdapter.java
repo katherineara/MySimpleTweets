@@ -21,6 +21,9 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
 
     private List<Tweet> mTweets;
@@ -81,21 +84,15 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     // create ViewHolder class
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public ImageView ivProfileImage;
-        public TextView tvUsername;
-        public TextView tvBody;
-        public TextView tvTime;
-        public ImageView replyButton;
+        @BindView(R.id.ivProfileImage) public ImageView ivProfileImage;
+        @BindView(R.id.tvUserName) public TextView tvUsername;
+        @BindView(R.id.tvBody) public TextView tvBody;
+        @BindView(R.id.tvTime) public TextView tvTime;
+        @BindView(R.id.reply) public ImageView replyButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
-            // perform findViewById lookups
-            ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
-            tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
-            tvBody = (TextView) itemView.findViewById(R.id.tvBody);
-            tvTime = (TextView) itemView.findViewById(R.id.tvTime);
-            replyButton = (ImageView) itemView.findViewById(R.id.reply);
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
 
         }
