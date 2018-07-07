@@ -17,27 +17,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
 public class ComposeActivity extends AppCompatActivity {
 
-    TwitterClient client;
-    EditText message;
-    JsonHttpResponseHandler handler;
-    TextView counter;
     Tweet tweet;
-
+    TwitterClient client;
+    JsonHttpResponseHandler handler;
+    @BindView(R.id.tweet_message) EditText message;
+    @BindView(R.id.counter) TextView counter;
+    @BindView(R.id.tweet_button) Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
+        ButterKnife.bind(this);
+
         client = new TwitterClient(this);
-
-        Button button = (Button) findViewById(R.id.tweet_button);
-        message = (EditText) findViewById(R.id.tweet_message);
-        counter = (TextView) findViewById(R.id.counter);
-
         handler = new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -74,6 +73,4 @@ public class ComposeActivity extends AppCompatActivity {
 
         message.addTextChangedListener(textEditor);
     }
-
-
 }
